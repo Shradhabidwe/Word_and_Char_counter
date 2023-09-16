@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>count word</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .container {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            border: 1px solid black;
+            border-radius: 20px;
+        }
+
+        h1 {
+            align-items: center;
+            padding: 20px;
+            text-align: center;
+            background-color: gray;
+            border-top-right-radius: 20px;
+            border-top-left-radius: 20px;
+        }
+
+        textarea {
+            border: none;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        p {
+            background-color: blue;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            /* border-bottom-right-radius: 20px;
+            border-bottom-left-radius: 20px; */
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        #btndiv {
+            margin: 20px 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1> Word and Charector Counter</h1>
+        <textarea name="text" id="text" cols="30" rows="10"></textarea>
+        <p>
+            <span id="word"> 0</span> word and <span id="char"> 0</span> character
+        </p>
+
+        <div id="btndiv"><button id="bt1">Touppercase</button>
+            <button id="bt2">Tolowercase</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        var textarea = document.getElementById('text');
+        var word = document.getElementById('word');
+        var char = document.getElementById('char');
+        var btn1 = document.getElementById('bt1');
+        var btn2 = document.getElementById('bt2');
+
+        textarea.addEventListener('input', function () {
+            var text = this.value;
+            var charlength = text.length;
+            char.innerHTML = charlength;
+            text = text.trim();
+            // console.log(text);
+            let wordArray = text.split(" ");
+            // console.log(wordArrray);
+            let newwordArray = wordArray.filter((elem) => elem != "");
+
+            word.innerHTML = newwordArray.length;
+        });
+
+
+        btn1.addEventListener('click', function () {
+            textarea.value = textarea.value.toUpperCase(); // Corrected the method name here
+        });
+        btn2.addEventListener('click', function () {
+            textarea.value = textarea.value.toLowerCase();
+        });
+    </script>
+</body>
+
+</html>
